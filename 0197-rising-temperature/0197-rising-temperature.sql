@@ -7,13 +7,13 @@
 -- )
 
 -- cross join
--- select w.id from Weather w
--- join Weather ws
--- where w.temperature > ws.temperature
--- AND datediff(w.recordDate , ws.recordDate)=1
-
-
 select w.id from Weather w
-where w.temperature >
-(select ws.temperature from Weather ws 
-where DATEDIFF(w.recordDate ,ws.recordDate ) = 1)
+join Weather ws
+where w.temperature > ws.temperature
+AND datediff(w.recordDate , ws.recordDate)=1
+
+
+-- select w.id from Weather w
+-- where w.temperature >
+-- (select ws.temperature from Weather ws 
+-- where DATEDIFF(w.recordDate ,ws.recordDate ) = 1)
